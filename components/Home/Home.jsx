@@ -24,6 +24,10 @@ export default function Home() {
   };
 
   const handleSubmit = async (e) => {
+    // only for testing
+    navigateToDashboard();
+
+    // ----------------
     e.preventDefault();
     setIsLoading(true);
     setError('');

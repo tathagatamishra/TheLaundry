@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import {
   FaTshirt,
@@ -31,18 +31,27 @@ import {
   FaArrowDown,
   FaArrowUp,
 } from "react-icons/fa";
+import { MdFullscreen, MdFullscreenExit } from "react-icons/md";
+import { RiFullscreenLine, RiFullscreenExitLine } from "react-icons/ri";
+import { BiFullscreen, BiExitFullscreen } from "react-icons/bi";
 
 export default function Dashboard() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("dashboard");
-  const [activeOrderList, setActiveOrderList] = useState("neworder");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedSource, setSelectedSource] = useState("all");
   const [selectedDateRange, setSelectedDateRange] = useState("today");
   const [showFilters, setShowFilters] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [expandedOrders, setExpandedOrders] = useState({});
   const [selectedOrderView, setSelectedOrderView] = useState("new"); // 'new' or 'processing'
+
+  const lastScrollY = useRef(0);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [showScrollTopNew, setShowScrollTopNew] = useState(false);
+  const [showScrollTopProcessing, setShowScrollTopProcessing] = useState(false);
+  const newOrdersRef = useRef(null);
+  const processingOrdersRef = useRef(null);
 
   // Sample data - replace with real data from your API
   const [orders, setOrders] = useState([
@@ -63,6 +72,51 @@ export default function Dashboard() {
     },
     {
       id: "ORD-002",
+      customerName: "John Doe",
+      phone: "+91 98765 43210",
+      address: "123 Main St, Jaleshwar",
+      items: ["Shirts - 3", "Pants - 2"],
+      source: "walk-in",
+      status: "new",
+      amount: 250,
+      date: "2025-01-05",
+      time: "10:30 AM",
+      deliveryDate: "2025-01-07",
+      assignedTo: null,
+      ready: false,
+    },
+    {
+      id: "ORD-003",
+      customerName: "John Doe",
+      phone: "+91 98765 43210",
+      address: "123 Main St, Jaleshwar",
+      items: ["Shirts - 3", "Pants - 2"],
+      source: "walk-in",
+      status: "new",
+      amount: 250,
+      date: "2025-01-05",
+      time: "10:30 AM",
+      deliveryDate: "2025-01-07",
+      assignedTo: null,
+      ready: false,
+    },
+    {
+      id: "ORD-004",
+      customerName: "John Doe",
+      phone: "+91 98765 43210",
+      address: "123 Main St, Jaleshwar",
+      items: ["Shirts - 3", "Pants - 2"],
+      source: "walk-in",
+      status: "new",
+      amount: 250,
+      date: "2025-01-05",
+      time: "10:30 AM",
+      deliveryDate: "2025-01-07",
+      assignedTo: null,
+      ready: false,
+    },
+    {
+      id: "ORD-005",
       customerName: "Jane Smith",
       phone: "+91 87654 32109",
       address: "456 Oak Ave, Jaleshwar",
@@ -77,7 +131,172 @@ export default function Dashboard() {
       ready: true,
     },
     {
-      id: "ORD-003",
+      id: "ORD-006",
+      customerName: "Jane Smith",
+      phone: "+91 87654 32109",
+      address: "456 Oak Ave, Jaleshwar",
+      items: ["Bedsheet - 1", "Curtains - 2"],
+      source: "phone",
+      status: "processing",
+      amount: 180,
+      date: "2025-01-05",
+      time: "11:15 AM",
+      deliveryDate: "2025-01-07",
+      assignedTo: "Delivery Boy 1",
+      ready: true,
+    },
+    {
+      id: "ORD-007",
+      customerName: "Jane Smith",
+      phone: "+91 87654 32109",
+      address: "456 Oak Ave, Jaleshwar",
+      items: ["Bedsheet - 1", "Curtains - 2"],
+      source: "phone",
+      status: "processing",
+      amount: 180,
+      date: "2025-01-05",
+      time: "11:15 AM",
+      deliveryDate: "2025-01-07",
+      assignedTo: "Delivery Boy 1",
+      ready: true,
+    },
+    {
+      id: "ORD-008",
+      customerName: "Jane Smith",
+      phone: "+91 87654 32109",
+      address: "456 Oak Ave, Jaleshwar",
+      items: ["Bedsheet - 1", "Curtains - 2"],
+      source: "phone",
+      status: "processing",
+      amount: 180,
+      date: "2025-01-05",
+      time: "11:15 AM",
+      deliveryDate: "2025-01-07",
+      assignedTo: "Delivery Boy 1",
+      ready: true,
+    },
+    {
+      id: "ORD-009",
+      customerName: "Jane Smith",
+      phone: "+91 87654 32109",
+      address: "456 Oak Ave, Jaleshwar",
+      items: ["Bedsheet - 1", "Curtains - 2"],
+      source: "phone",
+      status: "processing",
+      amount: 180,
+      date: "2025-01-05",
+      time: "11:15 AM",
+      deliveryDate: "2025-01-07",
+      assignedTo: "Delivery Boy 1",
+      ready: true,
+    },
+    {
+      id: "ORD-010",
+      customerName: "Jane Smith",
+      phone: "+91 87654 32109",
+      address: "456 Oak Ave, Jaleshwar",
+      items: ["Bedsheet - 1", "Curtains - 2"],
+      source: "phone",
+      status: "processing",
+      amount: 180,
+      date: "2025-01-05",
+      time: "11:15 AM",
+      deliveryDate: "2025-01-07",
+      assignedTo: "Delivery Boy 1",
+      ready: true,
+    },
+    {
+      id: "ORD-011",
+      customerName: "Rajesh Kumar",
+      phone: "+91 76543 21098",
+      address: "789 Pine Rd, Jaleshwar",
+      items: ["Saree - 2", "Shirt - 1"],
+      source: "online",
+      status: "new",
+      amount: 320,
+      date: "2025-01-05",
+      time: "12:00 PM",
+      deliveryDate: "2025-01-08",
+      assignedTo: null,
+      ready: false,
+    },
+    {
+      id: "ORD-012",
+      customerName: "Rajesh Kumar",
+      phone: "+91 76543 21098",
+      address: "789 Pine Rd, Jaleshwar",
+      items: ["Saree - 2", "Shirt - 1"],
+      source: "online",
+      status: "new",
+      amount: 320,
+      date: "2025-01-05",
+      time: "12:00 PM",
+      deliveryDate: "2025-01-08",
+      assignedTo: null,
+      ready: false,
+    },
+    {
+      id: "ORD-013",
+      customerName: "Rajesh Kumar",
+      phone: "+91 76543 21098",
+      address: "789 Pine Rd, Jaleshwar",
+      items: ["Saree - 2", "Shirt - 1"],
+      source: "online",
+      status: "new",
+      amount: 320,
+      date: "2025-01-05",
+      time: "12:00 PM",
+      deliveryDate: "2025-01-08",
+      assignedTo: null,
+      ready: false,
+    },
+    {
+      id: "ORD-014",
+      customerName: "Rajesh Kumar",
+      phone: "+91 76543 21098",
+      address: "789 Pine Rd, Jaleshwar",
+      items: ["Saree - 2", "Shirt - 1"],
+      source: "online",
+      status: "new",
+      amount: 320,
+      date: "2025-01-05",
+      time: "12:00 PM",
+      deliveryDate: "2025-01-08",
+      assignedTo: null,
+      ready: false,
+    },
+    {
+      id: "ORD-015",
+      customerName: "Rajesh Kumar",
+      phone: "+91 76543 21098",
+      address: "789 Pine Rd, Jaleshwar",
+      items: ["Saree - 2", "Shirt - 1"],
+      source: "online",
+      status: "new",
+      amount: 320,
+      date: "2025-01-05",
+      time: "12:00 PM",
+      deliveryDate: "2025-01-08",
+      assignedTo: null,
+      ready: false,
+    },
+    {
+      id: "ORD-016",
+      customerName: "Rajesh Kumar",
+      phone: "+91 76543 21098",
+      address: "789 Pine Rd, Jaleshwar",
+      items: ["Saree - 2", "Shirt - 1"],
+      source: "online",
+      status: "new",
+      amount: 320,
+      date: "2025-01-05",
+      time: "12:00 PM",
+      deliveryDate: "2025-01-08",
+      assignedTo: null,
+      ready: false,
+    },
+    {
+      id: "ORD-017",
       customerName: "Rajesh Kumar",
       phone: "+91 76543 21098",
       address: "789 Pine Rd, Jaleshwar",
@@ -92,6 +311,49 @@ export default function Dashboard() {
       ready: false,
     },
   ]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Toggle navbar visibility
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setShowNavbar(false); // scrolling down
+      } else {
+        setShowNavbar(true); // scrolling up
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (newOrdersRef.current) {
+        setShowScrollTopNew(newOrdersRef.current.scrollTop > 200);
+      }
+      if (processingOrdersRef.current) {
+        setShowScrollTopProcessing(processingOrdersRef.current.scrollTop > 200);
+      }
+    };
+
+    const newEl = newOrdersRef.current;
+    const processingEl = processingOrdersRef.current;
+
+    newEl?.addEventListener("scroll", handleScroll);
+    processingEl?.addEventListener("scroll", handleScroll);
+
+    return () => {
+      newEl?.removeEventListener("scroll", handleScroll);
+      processingEl?.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -154,13 +416,6 @@ export default function Dashboard() {
     }
   };
 
-  const toggleOrderExpansion = (orderId) => {
-    setExpandedOrders((prev) => ({
-      ...prev,
-      [orderId]: !prev[orderId],
-    }));
-  };
-
   const updateOrderStatus = (orderId, field, value) => {
     setOrders((prev) =>
       prev.map((order) =>
@@ -183,7 +438,7 @@ export default function Dashboard() {
 
   const OrderCard = ({ order }) => {
     return (
-      <div className="border border-gray-200 rounded-lg bg-white overflow-hidden">
+      <div className="border border-b-2 border-b-gray-300 border-gray-200 rounded-lg bg-white  overflow-hidden">
         {/* Header with checkbox, order ID, and customer info */}
         <div
           key={order.id}
@@ -235,7 +490,8 @@ export default function Dashboard() {
 
             <div className="text-right">
               <div className="h-[28px] flex flex-row justify-end items-center space-x-2 mb-2">
-                <button className="text-gray-600 hover:text-gray-800 transition duration-200">
+                <button className="text-gray-600 hover:text-gray-800 transition duration-200 flex items-center gap-4 flex-1 rounded-md p-2 border border-gray-200 bg-white shadow-sm active:scale-[95%]">
+                  <p className="md:block hidden">Edit order details</p>{" "}
                   <FaEdit className="h-4 w-4" />
                 </button>
               </div>
@@ -243,108 +499,105 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="p-0">
-          {/* Grid Layout */}
-          <div className="grid md:grid-cols-7 gap-0 min-h-[80px]">
-            {/* Order Column */}
-            <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white">
-              <div className="text-xs text-gray-500 mb-1">Order </div>
-              <div className="text-sm font-medium text-gray-900">
-                Final Amount: ₹{order.amount}
-              </div>
-              <div className="text-xs text-gray-500">{order.date}</div>
+        {/* Grid Layout */}
+        <div className="grid md:grid-cols-7 gap-0 min-h-[80px]">
+          {/* Order Column */}
+          <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white">
+            <div className="text-xs text-gray-500 mb-1">Order </div>
+            <div className="text-sm font-medium text-gray-900">
+              Final Amount: ₹{order.amount}
             </div>
-            
-            {/* Pickup Column */}
-            <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white">
-              <div className="text-xs text-gray-500 mb-1">Pickup ↕</div>
-              <div className="text-sm font-medium text-gray-900">
-                {order.date}
-              </div>
-              <div className="text-xs text-gray-500">{order.time}</div>
-            </div>
+            <div className="text-xs text-gray-500">{order.date}</div>
+          </div>
 
-            {/* Delivery Column */}
-            <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white">
-              <div className="text-xs text-gray-500 mb-1">Delivery ↕</div>
-              <div className="text-sm font-medium text-gray-900">
-                {order.deliveryDate}
-              </div>
-              <div className="text-xs text-gray-500">
-                {order.assignedTo
-                  ? `Assigned to: ${order.assignedTo}`
-                  : "Not assigned"}
-              </div>
+          {/* Pickup Column */}
+          <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white">
+            <div className="text-xs text-gray-500 mb-1">Pickup ↕</div>
+            <div className="text-sm font-medium text-gray-900">
+              {order.date}
             </div>
+            <div className="text-xs text-gray-500">{order.time}</div>
+          </div>
 
-            {/* Invoice Column */}
-            <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white flex items-center justify-center">
-              <button className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm font-medium transition duration-200">
-                Generate
+          {/* Delivery Column */}
+          <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white">
+            <div className="text-xs text-gray-500 mb-1">Delivery ↕</div>
+            <div className="text-sm font-medium text-gray-900">
+              {order.deliveryDate}
+            </div>
+            <div className="text-xs text-gray-500">
+              {order.assignedTo
+                ? `Assigned to: ${order.assignedTo}`
+                : "Not assigned"}
+            </div>
+          </div>
+
+          {/* Invoice Column */}
+          <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white flex items-center justify-center">
+            <button className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm font-medium transition duration-200 active:scale-[95%]">
+              Generate
+            </button>
+          </div>
+
+          {/* Order Ready Column */}
+          <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white flex items-center justify-center">
+            {order.ready ? (
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="text-sm text-green-700 font-medium">
+                  Ready
+                </span>
+              </div>
+            ) : (
+              <button
+                onClick={() => markOrderReady(order.id)}
+                className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm font-medium transition duration-200 active:scale-[95%]"
+              >
+                Mark Ready
               </button>
-            </div>
+            )}
+          </div>
 
-            {/* Order Ready Column */}
-            <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white flex items-center justify-center">
-              {order.ready ? (
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-sm text-green-700 font-medium">
-                    Ready
-                  </span>
-                </div>
-              ) : (
-                <button
-                  onClick={() => markOrderReady(order.id)}
-                  className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm font-medium transition duration-200"
-                >
-                  Mark Ready
-                </button>
-              )}
-            </div>
+          {/* Assign Delivery Column */}
+          <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white flex items-center justify-center">
+            {order.assignedTo ? (
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                <span className="text-sm text-blue-700 font-medium">
+                  Assigned
+                </span>
+              </div>
+            ) : order.ready ? (
+              <button
+                onClick={() => assignDelivery(order.id, "Delivery Boy 1")}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm font-medium transition duration-200 active:scale-[95%]"
+              >
+                Assign delivery
+              </button>
+            ) : (
+              <span className="text-sm text-gray-400">Pending</span>
+            )}
+          </div>
 
-            {/* Assign Delivery Column */}
-            <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white flex items-center justify-center">
-              {order.assignedTo ? (
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                  <span className="text-sm text-blue-700 font-medium">
-                    Assigned
-                  </span>
-                </div>
-              ) : order.ready ? (
-                <button
-                  onClick={() => assignDelivery(order.id, "Delivery Boy 1")}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm font-medium transition duration-200"
-                >
-                  Assign delivery
-                </button>
-              ) : (
-                <span className="text-sm text-gray-400">Pending</span>
-              )}
-            </div>
-
-            {/* Delivery Done Column */}
-            <div className="col-span-1 border-t border-gray-200 p-3 bg-white flex items-center justify-center">
-              {order.status === "completed" ? (
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-sm text-green-700 font-medium">
-                    Completed
-                  </span>
-                </div>
-              ) : order.assignedTo ? (
-                <button
-                  onClick={() => markDeliveryDone(order.id)}
-                  className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm font-medium transition duration-200"
-                >
-                  Mark Done
-                </button>
-              ) : (
-                <span className="text-sm text-gray-400">Pending</span>
-              )}
-            </div>
+          {/* Delivery Done Column */}
+          <div className="col-span-1 border-t border-gray-200 p-3 bg-white flex items-center justify-center">
+            {order.status === "completed" ? (
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="text-sm text-green-700 font-medium">
+                  Completed
+                </span>
+              </div>
+            ) : order.assignedTo ? (
+              <button
+                onClick={() => markDeliveryDone(order.id)}
+                className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm font-medium transition duration-200 active:scale-[95%]"
+              >
+                Mark Done
+              </button>
+            ) : (
+              <span className="text-sm text-gray-400">Pending</span>
+            )}
           </div>
         </div>
       </div>
@@ -354,7 +607,11 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation Bar */}
-      <nav className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+      <nav
+        className={`bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50 transition-transform duration-300 ${
+          showNavbar ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo and Shop Name */}
@@ -366,9 +623,9 @@ export default function Dashboard() {
                 <h1 className="text-lg md:text-xl font-bold text-gray-900">
                   The Laundry
                 </h1>
-                <p className="text-xs text-gray-500 hidden md:block">
+                {/* <p className="text-xs text-gray-500 hidden md:block">
                   Admin Dashboard
-                </p>
+                </p> */}
               </div>
             </div>
 
@@ -572,7 +829,7 @@ export default function Dashboard() {
                 </p>
               </div>
               <div className="mt-4 md:mt-0">
-                <button className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center justify-center transition duration-200 shadow-md">
+                <button className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center justify-center transition duration-200 shadow-md active:scale-[95%]">
                   <FaPlus className="h-4 w-4 mr-2" />
                   Add New Order
                 </button>
@@ -747,9 +1004,12 @@ export default function Dashboard() {
 
           {/* New Orders */}
           <div
-            className={`p-4 space-y-4 overflow-y-auto ${
-              selectedOrderView === "new" ? "block" : "hidden"
-            }`}
+            ref={newOrdersRef}
+            className={`${selectedOrderView === "new" ? "block" : "hidden"} ${
+              isFullscreen
+                ? "fixed inset-0 bg-white z-50 p-4 overflow-y-auto"
+                : "h-screen p-4 overflow-y-auto"
+            } space-y-4`}
           >
             {newOrders.map((order) => (
               <OrderCard key={order.id} order={order} />
@@ -760,13 +1020,54 @@ export default function Dashboard() {
                 <p>No new orders found</p>
               </div>
             )}
+
+            {showScrollTopNew && (
+              <button
+                onClick={() =>
+                  newOrdersRef.current?.scrollTo({ top: 0, behavior: "smooth" })
+                }
+                className="fixed bottom-20 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg z-50"
+              >
+                <FaArrowUp />
+              </button>
+            )}
+
+            {/* Full screen */}
+            <button
+              onClick={() => setIsFullscreen(!isFullscreen)}
+              className={`fixed flex items-center bottom-6 right-6 text-white p-3 rounded-full shadow-lg z-50 text-sm px-3 py-3 transition duration-200 ${
+                isFullscreen
+                  ? "bg-red-600 hover:bg-red-700"
+                  : "bg-blue-600 hover:bg-blue-700"
+              }`}
+            >
+              {isFullscreen ? (
+                <p className="hidden md:block mr-0 md:mr-[10px]">
+                  Exit Fullscreen
+                </p>
+              ) : (
+                <p className="hidden md:block mr-0 md:mr-[10px]">
+                  Fullscreen View
+                </p>
+              )}
+              {isFullscreen ? (
+                <BiExitFullscreen className="" />
+              ) : (
+                <BiFullscreen className="" />
+              )}
+            </button>
           </div>
 
           {/* Orders in Process */}
           <div
-            className={`p-4 space-y-4 overflow-y-auto ${
+            ref={processingOrdersRef}
+            className={`${
               selectedOrderView === "processing" ? "block" : "hidden"
-            }`}
+            } ${
+              isFullscreen
+                ? "fixed inset-0 bg-white z-50 p-4 overflow-y-auto"
+                : "h-screen p-4 overflow-y-auto"
+            } space-y-4`}
           >
             {processingOrders.map((order) => (
               <OrderCard key={order.id} order={order} />
@@ -777,6 +1078,45 @@ export default function Dashboard() {
                 <p>No orders in process</p>
               </div>
             )}
+
+            {showScrollTopProcessing && (
+              <button
+                onClick={() =>
+                  processingOrdersRef.current?.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                  })
+                }
+                className="fixed bottom-20 right-6 bg-yellow-500 hover:bg-yellow-600 text-white p-3 rounded-full shadow-lg z-50"
+              >
+                <FaArrowUp />
+              </button>
+            )}
+
+            {/* Full screen */}
+            <button
+              onClick={() => setIsFullscreen(!isFullscreen)}
+              className={`fixed flex items-center bottom-6 right-6 text-white p-3 rounded-full shadow-lg z-50 text-sm px-3 py-3 transition duration-200 ${
+                isFullscreen
+                  ? "bg-red-600 hover:bg-red-700"
+                  : "bg-blue-600 hover:bg-blue-700"
+              }`}
+            >
+              {isFullscreen ? (
+                <p className="hidden md:block mr-0 md:mr-[10px]">
+                  Exit Fullscreen
+                </p>
+              ) : (
+                <p className="hidden md:block mr-0 md:mr-[10px]">
+                  Fullscreen View
+                </p>
+              )}
+              {isFullscreen ? (
+                <BiExitFullscreen className="" />
+              ) : (
+                <BiFullscreen className="" />
+              )}
+            </button>
           </div>
         </div>
       </div>

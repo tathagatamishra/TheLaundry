@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+html,
+body {
+    cursor: url(https://cur.cursors-4u.net/cursors/cur-11/cur1054.cur), auto !important;
+}
+
+button,
+select {
+    cursor: pointer;
+    cursor: url(https://cur.cursors-4u.net/cursors/cur-11/cur1049.cur), auto !important;
+}
+
+input {
+    cursor: text;
+    cursor: url(https://cur.cursors-4u.net/cursors/cur-11/cur1047.cur), auto !important;
+}
