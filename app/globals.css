@@ -15,3 +15,9 @@ input {
     cursor: text;
     cursor: url(https://cur.cursors-4u.net/cursors/cur-11/cur1047.cur), auto !important;
 }
+
+html, body {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}

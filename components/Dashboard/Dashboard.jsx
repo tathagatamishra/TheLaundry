@@ -8,7 +8,6 @@ import {
   FaPlus,
   FaSearch,
   FaFilter,
-  FaCalendarAlt,
   FaTimes,
   FaClipboardList,
   FaUsers,
@@ -16,23 +15,15 @@ import {
   FaTag,
   FaChartBar,
   FaBell,
-  FaEye,
   FaEdit,
   FaClock,
   FaShoppingBag,
   FaPhoneAlt,
   FaMapMarkerAlt,
   FaBars,
-  FaFileInvoiceDollar,
-  FaCheck,
-  FaTruck,
-  FaCheckCircle,
-  FaUserTie,
-  FaArrowDown,
   FaArrowUp,
+  FaFileInvoiceDollar,
 } from "react-icons/fa";
-import { MdFullscreen, MdFullscreenExit } from "react-icons/md";
-import { RiFullscreenLine, RiFullscreenExitLine } from "react-icons/ri";
 import { BiFullscreen, BiExitFullscreen } from "react-icons/bi";
 
 export default function Dashboard() {
@@ -72,51 +63,6 @@ export default function Dashboard() {
     },
     {
       id: "ORD-002",
-      customerName: "John Doe",
-      phone: "+91 98765 43210",
-      address: "123 Main St, Jaleshwar",
-      items: ["Shirts - 3", "Pants - 2"],
-      source: "walk-in",
-      status: "new",
-      amount: 250,
-      date: "2025-01-05",
-      time: "10:30 AM",
-      deliveryDate: "2025-01-07",
-      assignedTo: null,
-      ready: false,
-    },
-    {
-      id: "ORD-003",
-      customerName: "John Doe",
-      phone: "+91 98765 43210",
-      address: "123 Main St, Jaleshwar",
-      items: ["Shirts - 3", "Pants - 2"],
-      source: "walk-in",
-      status: "new",
-      amount: 250,
-      date: "2025-01-05",
-      time: "10:30 AM",
-      deliveryDate: "2025-01-07",
-      assignedTo: null,
-      ready: false,
-    },
-    {
-      id: "ORD-004",
-      customerName: "John Doe",
-      phone: "+91 98765 43210",
-      address: "123 Main St, Jaleshwar",
-      items: ["Shirts - 3", "Pants - 2"],
-      source: "walk-in",
-      status: "new",
-      amount: 250,
-      date: "2025-01-05",
-      time: "10:30 AM",
-      deliveryDate: "2025-01-07",
-      assignedTo: null,
-      ready: false,
-    },
-    {
-      id: "ORD-005",
       customerName: "Jane Smith",
       phone: "+91 87654 32109",
       address: "456 Oak Ave, Jaleshwar",
@@ -129,187 +75,7 @@ export default function Dashboard() {
       deliveryDate: "2025-01-07",
       assignedTo: "Delivery Boy 1",
       ready: true,
-    },
-    {
-      id: "ORD-006",
-      customerName: "Jane Smith",
-      phone: "+91 87654 32109",
-      address: "456 Oak Ave, Jaleshwar",
-      items: ["Bedsheet - 1", "Curtains - 2"],
-      source: "phone",
-      status: "processing",
-      amount: 180,
-      date: "2025-01-05",
-      time: "11:15 AM",
-      deliveryDate: "2025-01-07",
-      assignedTo: "Delivery Boy 1",
-      ready: true,
-    },
-    {
-      id: "ORD-007",
-      customerName: "Jane Smith",
-      phone: "+91 87654 32109",
-      address: "456 Oak Ave, Jaleshwar",
-      items: ["Bedsheet - 1", "Curtains - 2"],
-      source: "phone",
-      status: "processing",
-      amount: 180,
-      date: "2025-01-05",
-      time: "11:15 AM",
-      deliveryDate: "2025-01-07",
-      assignedTo: "Delivery Boy 1",
-      ready: true,
-    },
-    {
-      id: "ORD-008",
-      customerName: "Jane Smith",
-      phone: "+91 87654 32109",
-      address: "456 Oak Ave, Jaleshwar",
-      items: ["Bedsheet - 1", "Curtains - 2"],
-      source: "phone",
-      status: "processing",
-      amount: 180,
-      date: "2025-01-05",
-      time: "11:15 AM",
-      deliveryDate: "2025-01-07",
-      assignedTo: "Delivery Boy 1",
-      ready: true,
-    },
-    {
-      id: "ORD-009",
-      customerName: "Jane Smith",
-      phone: "+91 87654 32109",
-      address: "456 Oak Ave, Jaleshwar",
-      items: ["Bedsheet - 1", "Curtains - 2"],
-      source: "phone",
-      status: "processing",
-      amount: 180,
-      date: "2025-01-05",
-      time: "11:15 AM",
-      deliveryDate: "2025-01-07",
-      assignedTo: "Delivery Boy 1",
-      ready: true,
-    },
-    {
-      id: "ORD-010",
-      customerName: "Jane Smith",
-      phone: "+91 87654 32109",
-      address: "456 Oak Ave, Jaleshwar",
-      items: ["Bedsheet - 1", "Curtains - 2"],
-      source: "phone",
-      status: "processing",
-      amount: 180,
-      date: "2025-01-05",
-      time: "11:15 AM",
-      deliveryDate: "2025-01-07",
-      assignedTo: "Delivery Boy 1",
-      ready: true,
-    },
-    {
-      id: "ORD-011",
-      customerName: "Rajesh Kumar",
-      phone: "+91 76543 21098",
-      address: "789 Pine Rd, Jaleshwar",
-      items: ["Saree - 2", "Shirt - 1"],
-      source: "online",
-      status: "new",
-      amount: 320,
-      date: "2025-01-05",
-      time: "12:00 PM",
-      deliveryDate: "2025-01-08",
-      assignedTo: null,
-      ready: false,
-    },
-    {
-      id: "ORD-012",
-      customerName: "Rajesh Kumar",
-      phone: "+91 76543 21098",
-      address: "789 Pine Rd, Jaleshwar",
-      items: ["Saree - 2", "Shirt - 1"],
-      source: "online",
-      status: "new",
-      amount: 320,
-      date: "2025-01-05",
-      time: "12:00 PM",
-      deliveryDate: "2025-01-08",
-      assignedTo: null,
-      ready: false,
-    },
-    {
-      id: "ORD-013",
-      customerName: "Rajesh Kumar",
-      phone: "+91 76543 21098",
-      address: "789 Pine Rd, Jaleshwar",
-      items: ["Saree - 2", "Shirt - 1"],
-      source: "online",
-      status: "new",
-      amount: 320,
-      date: "2025-01-05",
-      time: "12:00 PM",
-      deliveryDate: "2025-01-08",
-      assignedTo: null,
-      ready: false,
-    },
-    {
-      id: "ORD-014",
-      customerName: "Rajesh Kumar",
-      phone: "+91 76543 21098",
-      address: "789 Pine Rd, Jaleshwar",
-      items: ["Saree - 2", "Shirt - 1"],
-      source: "online",
-      status: "new",
-      amount: 320,
-      date: "2025-01-05",
-      time: "12:00 PM",
-      deliveryDate: "2025-01-08",
-      assignedTo: null,
-      ready: false,
-    },
-    {
-      id: "ORD-015",
-      customerName: "Rajesh Kumar",
-      phone: "+91 76543 21098",
-      address: "789 Pine Rd, Jaleshwar",
-      items: ["Saree - 2", "Shirt - 1"],
-      source: "online",
-      status: "new",
-      amount: 320,
-      date: "2025-01-05",
-      time: "12:00 PM",
-      deliveryDate: "2025-01-08",
-      assignedTo: null,
-      ready: false,
-    },
-    {
-      id: "ORD-016",
-      customerName: "Rajesh Kumar",
-      phone: "+91 76543 21098",
-      address: "789 Pine Rd, Jaleshwar",
-      items: ["Saree - 2", "Shirt - 1"],
-      source: "online",
-      status: "new",
-      amount: 320,
-      date: "2025-01-05",
-      time: "12:00 PM",
-      deliveryDate: "2025-01-08",
-      assignedTo: null,
-      ready: false,
-    },
-    {
-      id: "ORD-017",
-      customerName: "Rajesh Kumar",
-      phone: "+91 76543 21098",
-      address: "789 Pine Rd, Jaleshwar",
-      items: ["Saree - 2", "Shirt - 1"],
-      source: "online",
-      status: "new",
-      amount: 320,
-      date: "2025-01-05",
-      time: "12:00 PM",
-      deliveryDate: "2025-01-08",
-      assignedTo: null,
-      ready: false,
-    },
+    }
   ]);
 
   useEffect(() => {
@@ -480,19 +246,25 @@ export default function Dashboard() {
                   <FaClock className="h-3 w-3 mr-2" />
                   {order.time} - {order.date}
                 </div>
-              </div>
-              <div className="mt-2">
-                <p className="text-sm text-gray-600">
+                <div className="flex items-center text-sm text-gray-800 mt-4">
+                  <FaTshirt className="h-3 w-3 mr-2" />
                   Items: {order.items.join(", ")}
-                </p>
+                </div>
               </div>
             </div>
 
-            <div className="text-right">
+            <div className="text-right flex flex-col items-end gap-6">
               <div className="h-[28px] flex flex-row justify-end items-center space-x-2 mb-2">
                 <button className="text-gray-600 hover:text-gray-800 transition duration-200 flex items-center gap-4 flex-1 rounded-md p-2 border border-gray-200 bg-white shadow-sm active:scale-[95%]">
                   <p className="md:block hidden">Edit order details</p>{" "}
                   <FaEdit className="h-4 w-4" />
+                </button>
+              </div>
+
+              <div className="h-[28px] flex flex-row justify-end items-center space-x-2 mb-2">
+                <button className="text-white transition duration-200 flex items-center gap-4 flex-1 rounded-md p-2 bg-green-600 hover:bg-green-700 shadow-sm active:scale-[95%]">
+                  <p className="md:block hidden">Generate invoice</p>{" "}
+                  <FaFileInvoiceDollar className="h-4 w-4" />
                 </button>
               </div>
             </div>
@@ -500,19 +272,19 @@ export default function Dashboard() {
         </div>
 
         {/* Grid Layout */}
-        <div className="grid md:grid-cols-7 gap-0 min-h-[80px]">
+        <div className="grid md:grid-cols-6 gap-0 min-h-[80px]">
           {/* Order Column */}
           <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white">
-            <div className="text-xs text-gray-500 mb-1">Order </div>
+            <div className="text-xs text-gray-500 mb-2">Final Amount</div>
             <div className="text-sm font-medium text-gray-900">
-              Final Amount: ₹{order.amount}
+              ₹{order.amount}
             </div>
             <div className="text-xs text-gray-500">{order.date}</div>
           </div>
 
           {/* Pickup Column */}
           <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white">
-            <div className="text-xs text-gray-500 mb-1">Pickup ↕</div>
+            <div className="text-xs text-gray-500 mb-2">Pickup date</div>
             <div className="text-sm font-medium text-gray-900">
               {order.date}
             </div>
@@ -521,26 +293,24 @@ export default function Dashboard() {
 
           {/* Delivery Column */}
           <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white">
-            <div className="text-xs text-gray-500 mb-1">Delivery ↕</div>
+            <div className="text-xs text-gray-500 mb-2">Delivery date</div>
             <div className="text-sm font-medium text-gray-900">
               {order.deliveryDate}
             </div>
-            <div className="text-xs text-gray-500">
+            <div
+              className={`text-xs ${
+                order.assignedTo ? "text-green-600" : "text-red-500"
+              }`}
+            >
               {order.assignedTo
                 ? `Assigned to: ${order.assignedTo}`
                 : "Not assigned"}
             </div>
           </div>
 
-          {/* Invoice Column */}
-          <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white flex items-center justify-center">
-            <button className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm font-medium transition duration-200 active:scale-[95%]">
-              Generate
-            </button>
-          </div>
-
           {/* Order Ready Column */}
-          <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white flex items-center justify-center">
+          <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white flex flex-col items-center justify-start">
+            <div className="text-xs text-gray-500 mb-2">Order ready</div>
             {order.ready ? (
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
@@ -559,7 +329,8 @@ export default function Dashboard() {
           </div>
 
           {/* Assign Delivery Column */}
-          <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white flex items-center justify-center">
+          <div className="col-span-1 border-t md:border-r border-gray-200 p-3 bg-white flex flex-col items-center justify-start">
+            <div className="text-xs text-gray-500 mb-2">Assign delivery</div>
             {order.assignedTo ? (
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
@@ -580,7 +351,8 @@ export default function Dashboard() {
           </div>
 
           {/* Delivery Done Column */}
-          <div className="col-span-1 border-t border-gray-200 p-3 bg-white flex items-center justify-center">
+          <div className="col-span-1 border-t border-gray-200 p-3 bg-white flex flex-col items-center justify-start">
+            <div className="text-xs text-gray-500 mb-2">Delivery done</div>
             {order.status === "completed" ? (
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
@@ -605,7 +377,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       {/* Navigation Bar */}
       <nav
         className={`bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50 transition-transform duration-300 ${
@@ -632,7 +404,7 @@ export default function Dashboard() {
             {/* Desktop Navigation Links */}
             <div className="hidden lg:flex items-center space-x-8">
               <button
-                onClick={() => setActiveTab("dashboard")}
+                onClick={() => router.push("./dashboard")}
                 className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition duration-200 ${
                   activeTab === "dashboard"
                     ? "text-blue-600 bg-blue-50"
@@ -643,7 +415,7 @@ export default function Dashboard() {
                 Dashboard
               </button>
               <button
-                onClick={() => setActiveTab("customers")}
+                onClick={() => router.push("./customers")}
                 className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition duration-200 ${
                   activeTab === "customers"
                     ? "text-blue-600 bg-blue-50"
@@ -654,7 +426,7 @@ export default function Dashboard() {
                 Customers
               </button>
               <button
-                onClick={() => setActiveTab("prices")}
+                onClick={() => router.push("./prices")}
                 className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition duration-200 ${
                   activeTab === "prices"
                     ? "text-blue-600 bg-blue-50"
@@ -665,7 +437,7 @@ export default function Dashboard() {
                 Prices
               </button>
               <button
-                onClick={() => setActiveTab("coupons")}
+                onClick={() => router.push("./coupons")}
                 className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition duration-200 ${
                   activeTab === "coupons"
                     ? "text-blue-600 bg-blue-50"
@@ -676,7 +448,7 @@ export default function Dashboard() {
                 Coupons
               </button>
               <button
-                onClick={() => setActiveTab("reports")}
+                onClick={() => router.push("./reports")}
                 className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition duration-200 ${
                   activeTab === "reports"
                     ? "text-blue-600 bg-blue-50"
@@ -732,7 +504,7 @@ export default function Dashboard() {
             <div className="px-4 py-2 space-y-1">
               <button
                 onClick={() => {
-                  setActiveTab("dashboard");
+                  router.push("./dashboard");
                   setMobileMenuOpen(false);
                 }}
                 className={`flex items-center w-full px-3 py-2 rounded-md text-sm font-medium transition duration-200 ${
@@ -746,7 +518,7 @@ export default function Dashboard() {
               </button>
               <button
                 onClick={() => {
-                  setActiveTab("customers");
+                  router.push("./customers");
                   setMobileMenuOpen(false);
                 }}
                 className={`flex items-center w-full px-3 py-2 rounded-md text-sm font-medium transition duration-200 ${
@@ -760,7 +532,7 @@ export default function Dashboard() {
               </button>
               <button
                 onClick={() => {
-                  setActiveTab("prices");
+                  router.push("./prices");
                   setMobileMenuOpen(false);
                 }}
                 className={`flex items-center w-full px-3 py-2 rounded-md text-sm font-medium transition duration-200 ${
@@ -774,7 +546,7 @@ export default function Dashboard() {
               </button>
               <button
                 onClick={() => {
-                  setActiveTab("coupons");
+                  router.push("./coupons");
                   setMobileMenuOpen(false);
                 }}
                 className={`flex items-center w-full px-3 py-2 rounded-md text-sm font-medium transition duration-200 ${
@@ -788,7 +560,7 @@ export default function Dashboard() {
               </button>
               <button
                 onClick={() => {
-                  setActiveTab("reports");
+                  router.push("./reports");
                   setMobileMenuOpen(false);
                 }}
                 className={`flex items-center w-full px-3 py-2 rounded-md text-sm font-medium transition duration-200 ${
@@ -816,309 +588,413 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
-        <div className="">
-          {/* Header Section */}
-          <div className="mb-6 md:mb-8">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-              <div>
-                <h2 className="text-xl md:text-2xl font-bold text-gray-900">
-                  Dashboard
-                </h2>
-                <p className="text-gray-600 mt-1">
-                  Manage your laundry orders and business
-                </p>
-              </div>
-              <div className="mt-4 md:mt-0">
-                <button className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center justify-center transition duration-200 shadow-md active:scale-[95%]">
-                  <FaPlus className="h-4 w-4 mr-2" />
-                  Add New Order
-                </button>
-              </div>
+        {/* Header Section */}
+        <div className="mb-6 md:mb-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+                Dashboard
+              </h2>
+              <p className="text-gray-600 mt-1">
+                Manage your laundry orders and business
+              </p>
             </div>
-          </div>
-
-          {/* Search and Filters */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6 mb-6">
-            <div className="space-y-4">
-              {/* Search Bar */}
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaSearch className="h-5 w-5 text-gray-400" />
-                </div>
-                <input
-                  type="text"
-                  placeholder="Search orders..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              </div>
-
-              {/* Filter Controls */}
-              <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
-                <select
-                  value={selectedSource}
-                  onChange={(e) => setSelectedSource(e.target.value)}
-                  className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  <option value="all">All Sources</option>
-                  <option value="walk-in">Walk-in</option>
-                  <option value="phone">Phone</option>
-                  <option value="online">Online</option>
-                </select>
-
-                <select
-                  value={selectedDateRange}
-                  onChange={(e) => setSelectedDateRange(e.target.value)}
-                  className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  <option value="all">All Time</option>
-                  <option value="today">Today</option>
-                  <option value="yesterday">Yesterday</option>
-                  <option value="this-week">This Week</option>
-                  <option value="this-month">This Month</option>
-                </select>
-
-                <button
-                  onClick={() => setShowFilters(!showFilters)}
-                  className="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200 flex items-center justify-center"
-                >
-                  <FaFilter className="h-4 w-4 mr-2" />
-                  More Filters
-                </button>
-              </div>
-
-              {/* Active Filters */}
-              {getActiveFilters().length > 0 && (
-                <div className="pt-4 border-t border-gray-200">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-sm text-gray-600">
-                      Active filters:
-                    </span>
-                    {getActiveFilters().map((filter, index) => (
-                      <span
-                        key={index}
-                        className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-                      >
-                        {filter.type}: {filter.value}
-                        <button
-                          onClick={() => removeFilter(filter.type)}
-                          className="ml-1 text-blue-600 hover:text-blue-800"
-                        >
-                          <FaTimes className="h-3 w-3" />
-                        </button>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
+            <div className="mt-4 md:mt-0">
+              <button className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center justify-center transition duration-200 shadow-md active:scale-[95%]">
+                <FaPlus className="h-4 w-4 mr-2" />
+                Add New Order
+              </button>
             </div>
           </div>
         </div>
 
-        {/* Order Toggle */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 mb-4">
-          <div className="hidden md:flex rounded-t-lg bg-gray-200 p-1">
-            <button
-              className={`flex-1 rounded-md transition duration-200 p-4 md:p-6 border-b border-gray-200 ${
-                selectedOrderView === "new"
-                  ? "bg-white text-blue-600 shadow-sm"
-                  : "text-gray-700 hover:text-blue-600"
-              }`}
-              onClick={() => setSelectedOrderView("new")}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <div className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center">
-                    <FaShoppingBag className="h-5 w-5 text-blue-600" />
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      New Orders
-                    </h3>
-                    <p className="text-sm text-gray-500">
-                      {newOrders.length} pending orders
-                    </p>
-                  </div>
-                </div>
-                <span className="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded-full">
-                  {newOrders.length}
-                </span>
+        {/* Search and Filters */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6 mb-6">
+          <div className="space-y-4">
+            {/* Search Bar */}
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <FaSearch className="h-5 w-5 text-gray-400" />
               </div>
-            </button>
+              <input
+                type="text"
+                placeholder="Search orders..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
 
-            <button
-              className={`flex-1 rounded-md transition duration-200 p-4 md:p-6 border-b border-gray-200 ${
-                selectedOrderView === "processing"
-                  ? "bg-white text-yellow-600 shadow-sm"
-                  : "text-gray-700 hover:text-yellow-600"
-              }`}
-              onClick={() => setSelectedOrderView("processing")}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <div className="h-10 w-10 bg-yellow-100 rounded-full flex items-center justify-center">
-                    <FaClock className="h-5 w-5 text-yellow-600" />
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      Orders in Process
-                    </h3>
-                    <p className="text-sm text-gray-500">
-                      {processingOrders.length} being processed
-                    </p>
-                  </div>
-                </div>
-                <span className="bg-yellow-100 text-yellow-800 text-sm font-medium px-2.5 py-0.5 rounded-full">
-                  {processingOrders.length}
-                </span>
-              </div>
-            </button>
-          </div>
+            {/* Filter Controls */}
+            <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
+              <select
+                value={selectedSource}
+                onChange={(e) => setSelectedSource(e.target.value)}
+                className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                <option value="all">All Sources</option>
+                <option value="walk-in">Walk-in</option>
+                <option value="phone">Phone</option>
+                <option value="online">Online</option>
+              </select>
 
-          {/* Mobile Order Toggle */}
-          <div className="md:hidden mb-4">
-            <div className="flex rounded-t-lg bg-gray-200 p-1">
+              <select
+                value={selectedDateRange}
+                onChange={(e) => setSelectedDateRange(e.target.value)}
+                className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                <option value="all">All Time</option>
+                <option value="today">Today</option>
+                <option value="yesterday">Yesterday</option>
+                <option value="this-week">This Week</option>
+                <option value="this-month">This Month</option>
+              </select>
+
               <button
-                onClick={() => setSelectedOrderView("new")}
-                className={`flex-1 px-4 py-2 text-sm font-medium rounded-md transition duration-200 ${
+                onClick={() => setShowFilters(!showFilters)}
+                className="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200 flex items-center justify-center"
+              >
+                <FaFilter className="h-4 w-4 mr-2" />
+                More Filters
+              </button>
+            </div>
+
+            {/* Active Filters */}
+            {getActiveFilters().length > 0 && (
+              <div className="pt-4 border-t border-gray-200">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-sm text-gray-600">Active filters:</span>
+                  {getActiveFilters().map((filter, index) => (
+                    <span
+                      key={index}
+                      className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+                    >
+                      {filter.type}: {filter.value}
+                      <button
+                        onClick={() => removeFilter(filter.type)}
+                        className="ml-1 text-blue-600 hover:text-blue-800"
+                      >
+                        <FaTimes className="h-3 w-3" />
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Order list */}
+        {isFullscreen ? (
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 mb-4 flex flex-col">
+            {/* New Orders */}
+            <div
+              ref={newOrdersRef}
+              className={`${
+                selectedOrderView === "new" ? "block" : "hidden"
+              } fixed inset-0 bg-white z-50 p-4 overflow-y-auto space-y-4`}
+            >
+              {newOrders.map((order) => (
+                <OrderCard key={order.id} order={order} />
+              ))}
+              {newOrders.length === 0 && (
+                <div className="p-8 text-center text-gray-500">
+                  <FaShoppingBag className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+                  <p>No new orders found</p>
+                </div>
+              )}
+
+              {showScrollTopNew && (
+                <button
+                  onClick={() =>
+                    newOrdersRef.current?.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    })
+                  }
+                  className="fixed md:bottom-20 bottom-16 md:right-6 right-4 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg z-50"
+                >
+                  <FaArrowUp />
+                </button>
+              )}
+
+              {/* Full screen */}
+              <button
+                onClick={() => setIsFullscreen(!isFullscreen)}
+                className={`fixed flex items-center bottom-6 md:right-6 right-4 text-white p-3 rounded-full shadow-lg z-50 text-sm px-3 py-3 transition duration-200 ${
+                  isFullscreen
+                    ? "bg-red-600 hover:bg-red-700"
+                    : "bg-blue-600 hover:bg-blue-700"
+                }`}
+              >
+                {isFullscreen ? (
+                  <p className="hidden md:block mr-0 md:mr-[10px]">
+                    Exit Fullscreen
+                  </p>
+                ) : (
+                  <p className="hidden md:block mr-0 md:mr-[10px]">
+                    Fullscreen View
+                  </p>
+                )}
+                {isFullscreen ? (
+                  <BiExitFullscreen className="" />
+                ) : (
+                  <BiFullscreen className="" />
+                )}
+              </button>
+            </div>
+
+            {/* Orders in Process */}
+            <div
+              ref={processingOrdersRef}
+              className={`${
+                selectedOrderView === "processing" ? "block" : "hidden"
+              } fixed inset-0 bg-white z-50 p-4 overflow-y-auto space-y-4`}
+            >
+              {processingOrders.map((order) => (
+                <OrderCard key={order.id} order={order} />
+              ))}
+              {processingOrders.length === 0 && (
+                <div className="p-8 text-center text-gray-500">
+                  <FaClock className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+                  <p>No orders in process</p>
+                </div>
+              )}
+
+              {showScrollTopProcessing && (
+                <button
+                  onClick={() =>
+                    processingOrdersRef.current?.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    })
+                  }
+                  className="fixed md:bottom-20 bottom-16 md:right-6 right-4 bg-yellow-500 hover:bg-yellow-600 text-white p-3 rounded-full shadow-lg z-50"
+                >
+                  <FaArrowUp />
+                </button>
+              )}
+
+              {/* Full screen */}
+              <button
+                onClick={() => setIsFullscreen(!isFullscreen)}
+                className={`fixed flex items-center bottom-6 md:right-6 right-4 text-white p-3 rounded-full shadow-lg z-50 text-sm px-3 py-3 transition duration-200 ${
+                  isFullscreen
+                    ? "bg-red-600 hover:bg-red-700"
+                    : "bg-blue-600 hover:bg-blue-700"
+                }`}
+              >
+                {isFullscreen ? (
+                  <p className="hidden md:block mr-0 md:mr-[10px]">
+                    Exit Fullscreen
+                  </p>
+                ) : (
+                  <p className="hidden md:block mr-0 md:mr-[10px]">
+                    Fullscreen View
+                  </p>
+                )}
+                {isFullscreen ? <BiExitFullscreen /> : <BiFullscreen />}
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="h-[calc(100vh-48px)] bg-white rounded-lg shadow-sm border border-gray-200 mb-4 flex flex-col">
+            {/* Order Toggle */}
+            <div className="hidden md:flex rounded-t-lg bg-gray-200 p-1 flex-shrink-0">
+              <button
+                className={`flex-1 rounded-md transition duration-200 p-4 md:p-6 border-b border-gray-200 ${
                   selectedOrderView === "new"
                     ? "bg-white text-blue-600 shadow-sm"
                     : "text-gray-700 hover:text-blue-600"
                 }`}
+                onClick={() => setSelectedOrderView("new")}
               >
-                New Orders ({newOrders.length})
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <div className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center">
+                      <FaShoppingBag className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div className="ml-3">
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        New Orders
+                      </h3>
+                      <p className="text-sm text-gray-500">
+                        {newOrders.length} pending orders
+                      </p>
+                    </div>
+                  </div>
+                  <span className="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded-full">
+                    {newOrders.length}
+                  </span>
+                </div>
               </button>
+
               <button
-                onClick={() => setSelectedOrderView("processing")}
-                className={`flex-1 px-4 py-2 text-sm font-medium rounded-md transition duration-200 ${
+                className={`flex-1 rounded-md transition duration-200 p-4 md:p-6 border-b border-gray-200 ${
                   selectedOrderView === "processing"
                     ? "bg-white text-yellow-600 shadow-sm"
                     : "text-gray-700 hover:text-yellow-600"
                 }`}
+                onClick={() => setSelectedOrderView("processing")}
               >
-                Processing ({processingOrders.length})
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <div className="h-10 w-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                      <FaClock className="h-5 w-5 text-yellow-600" />
+                    </div>
+                    <div className="ml-3">
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        Orders in Process
+                      </h3>
+                      <p className="text-sm text-gray-500">
+                        {processingOrders.length} being processed
+                      </p>
+                    </div>
+                  </div>
+                  <span className="bg-yellow-100 text-yellow-800 text-sm font-medium px-2.5 py-0.5 rounded-full">
+                    {processingOrders.length}
+                  </span>
+                </div>
+              </button>
+            </div>
+
+            {/* Mobile Order Toggle */}
+            <div className="md:hidden mb-4 flex-shrink-0">
+              <div className="flex rounded-t-lg bg-gray-200 p-1">
+                <button
+                  onClick={() => setSelectedOrderView("new")}
+                  className={`flex-1 px-4 py-2 text-sm font-medium rounded-md transition duration-200 ${
+                    selectedOrderView === "new"
+                      ? "bg-white text-blue-600 shadow-sm"
+                      : "text-gray-700 hover:text-blue-600"
+                  }`}
+                >
+                  New Orders ({newOrders.length})
+                </button>
+                <button
+                  onClick={() => setSelectedOrderView("processing")}
+                  className={`flex-1 px-4 py-2 text-sm font-medium rounded-md transition duration-200 ${
+                    selectedOrderView === "processing"
+                      ? "bg-white text-yellow-600 shadow-sm"
+                      : "text-gray-700 hover:text-yellow-600"
+                  }`}
+                >
+                  Processing ({processingOrders.length})
+                </button>
+              </div>
+            </div>
+
+            {/* New Orders */}
+            <div
+              ref={newOrdersRef}
+              className={`${
+                selectedOrderView === "new" ? "block" : "hidden"
+              } flex-1 p-4 overflow-y-auto min-h-0 space-y-4`}
+            >
+              {newOrders.map((order) => (
+                <OrderCard key={order.id} order={order} />
+              ))}
+              {newOrders.length === 0 && (
+                <div className="p-8 text-center text-gray-500">
+                  <FaShoppingBag className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+                  <p>No new orders found</p>
+                </div>
+              )}
+
+              {showScrollTopNew && (
+                <button
+                  onClick={() =>
+                    newOrdersRef.current?.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    })
+                  }
+                  className="fixed bottom-20 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg z-50"
+                >
+                  <FaArrowUp />
+                </button>
+              )}
+
+              {/* Full screen */}
+              <button
+                onClick={() => setIsFullscreen(!isFullscreen)}
+                className={`fixed flex items-center bottom-6 right-6 text-white p-3 rounded-full shadow-lg z-50 text-sm px-3 py-3 transition duration-200 ${
+                  isFullscreen
+                    ? "bg-red-600 hover:bg-red-700"
+                    : "bg-blue-600 hover:bg-blue-700"
+                }`}
+              >
+                {isFullscreen ? (
+                  <p className="hidden md:block mr-0 md:mr-[10px]">
+                    Exit Fullscreen
+                  </p>
+                ) : (
+                  <p className="hidden md:block mr-0 md:mr-[10px]">
+                    Fullscreen View
+                  </p>
+                )}
+                {isFullscreen ? (
+                  <BiExitFullscreen className="" />
+                ) : (
+                  <BiFullscreen className="" />
+                )}
+              </button>
+            </div>
+
+            {/* Orders in Process */}
+            <div
+              ref={processingOrdersRef}
+              className={`${
+                selectedOrderView === "processing" ? "block" : "hidden"
+              } flex-1 p-4 overflow-y-auto min-h-0 space-y-4`}
+            >
+              {processingOrders.map((order) => (
+                <OrderCard key={order.id} order={order} />
+              ))}
+              {processingOrders.length === 0 && (
+                <div className="p-8 text-center text-gray-500">
+                  <FaClock className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+                  <p>No orders in process</p>
+                </div>
+              )}
+
+              {showScrollTopProcessing && (
+                <button
+                  onClick={() =>
+                    processingOrdersRef.current?.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    })
+                  }
+                  className="fixed bottom-20 right-6 bg-yellow-500 hover:bg-yellow-600 text-white p-3 rounded-full shadow-lg z-50"
+                >
+                  <FaArrowUp />
+                </button>
+              )}
+
+              {/* Full screen */}
+              <button
+                onClick={() => setIsFullscreen(!isFullscreen)}
+                className={`fixed flex items-center bottom-6 right-6 text-white p-3 rounded-full shadow-lg z-50 text-sm px-3 py-3 transition duration-200 ${
+                  isFullscreen
+                    ? "bg-red-600 hover:bg-red-700"
+                    : "bg-blue-600 hover:bg-blue-700"
+                }`}
+              >
+                {isFullscreen ? (
+                  <p className="hidden md:block mr-0 md:mr-[10px]">
+                    Exit Fullscreen
+                  </p>
+                ) : (
+                  <p className="hidden md:block mr-0 md:mr-[10px]">
+                    Fullscreen View
+                  </p>
+                )}
+                {isFullscreen ? <BiExitFullscreen /> : <BiFullscreen />}
               </button>
             </div>
           </div>
-
-          {/* New Orders */}
-          <div
-            ref={newOrdersRef}
-            className={`${selectedOrderView === "new" ? "block" : "hidden"} ${
-              isFullscreen
-                ? "fixed inset-0 bg-white z-50 p-4 overflow-y-auto"
-                : "h-screen p-4 overflow-y-auto"
-            } space-y-4`}
-          >
-            {newOrders.map((order) => (
-              <OrderCard key={order.id} order={order} />
-            ))}
-            {newOrders.length === 0 && (
-              <div className="p-8 text-center text-gray-500">
-                <FaShoppingBag className="h-12 w-12 mx-auto mb-4 text-gray-300" />
-                <p>No new orders found</p>
-              </div>
-            )}
-
-            {showScrollTopNew && (
-              <button
-                onClick={() =>
-                  newOrdersRef.current?.scrollTo({ top: 0, behavior: "smooth" })
-                }
-                className="fixed bottom-20 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg z-50"
-              >
-                <FaArrowUp />
-              </button>
-            )}
-
-            {/* Full screen */}
-            <button
-              onClick={() => setIsFullscreen(!isFullscreen)}
-              className={`fixed flex items-center bottom-6 right-6 text-white p-3 rounded-full shadow-lg z-50 text-sm px-3 py-3 transition duration-200 ${
-                isFullscreen
-                  ? "bg-red-600 hover:bg-red-700"
-                  : "bg-blue-600 hover:bg-blue-700"
-              }`}
-            >
-              {isFullscreen ? (
-                <p className="hidden md:block mr-0 md:mr-[10px]">
-                  Exit Fullscreen
-                </p>
-              ) : (
-                <p className="hidden md:block mr-0 md:mr-[10px]">
-                  Fullscreen View
-                </p>
-              )}
-              {isFullscreen ? (
-                <BiExitFullscreen className="" />
-              ) : (
-                <BiFullscreen className="" />
-              )}
-            </button>
-          </div>
-
-          {/* Orders in Process */}
-          <div
-            ref={processingOrdersRef}
-            className={`${
-              selectedOrderView === "processing" ? "block" : "hidden"
-            } ${
-              isFullscreen
-                ? "fixed inset-0 bg-white z-50 p-4 overflow-y-auto"
-                : "h-screen p-4 overflow-y-auto"
-            } space-y-4`}
-          >
-            {processingOrders.map((order) => (
-              <OrderCard key={order.id} order={order} />
-            ))}
-            {processingOrders.length === 0 && (
-              <div className="p-8 text-center text-gray-500">
-                <FaClock className="h-12 w-12 mx-auto mb-4 text-gray-300" />
-                <p>No orders in process</p>
-              </div>
-            )}
-
-            {showScrollTopProcessing && (
-              <button
-                onClick={() =>
-                  processingOrdersRef.current?.scrollTo({
-                    top: 0,
-                    behavior: "smooth",
-                  })
-                }
-                className="fixed bottom-20 right-6 bg-yellow-500 hover:bg-yellow-600 text-white p-3 rounded-full shadow-lg z-50"
-              >
-                <FaArrowUp />
-              </button>
-            )}
-
-            {/* Full screen */}
-            <button
-              onClick={() => setIsFullscreen(!isFullscreen)}
-              className={`fixed flex items-center bottom-6 right-6 text-white p-3 rounded-full shadow-lg z-50 text-sm px-3 py-3 transition duration-200 ${
-                isFullscreen
-                  ? "bg-red-600 hover:bg-red-700"
-                  : "bg-blue-600 hover:bg-blue-700"
-              }`}
-            >
-              {isFullscreen ? (
-                <p className="hidden md:block mr-0 md:mr-[10px]">
-                  Exit Fullscreen
-                </p>
-              ) : (
-                <p className="hidden md:block mr-0 md:mr-[10px]">
-                  Fullscreen View
-                </p>
-              )}
-              {isFullscreen ? (
-                <BiExitFullscreen className="" />
-              ) : (
-                <BiFullscreen className="" />
-              )}
-            </button>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
